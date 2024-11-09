@@ -11,11 +11,10 @@ class SoalTujuhController extends Controller
 {
     public function index(){
         try {
-            $user = User::with('product')->get();
-            $product = Product::with('user')->get();
+            $user = User::get();
+            $product = Product::get();
             return response()->json([
-                'user' => $user,
-                'product' => $product
+                'data' => $product
             ]);
         } catch (\Exception $e) {
             return response()->json([
