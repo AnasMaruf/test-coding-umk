@@ -11,8 +11,8 @@ class SoalTujuhController extends Controller
 {
     public function index(){
         try {
-            $user = User::all();
-            $product = Product::all();
+            $user = User::with('product')->get();
+            $product = Product::with('user')->get();
             return response()->json([
                 'user' => $user,
                 'product' => $product
